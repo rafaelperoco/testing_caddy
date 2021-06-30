@@ -1,0 +1,21 @@
+{
+  debug
+  auto_https off
+  log {
+    level DEBUG
+    output stdout
+    format console
+  }
+}
+:80 {
+  handle_path /path1/* {
+    file_server {
+      root /etc/caddy/app/path2
+    }
+  }
+  handle {
+    file_server {
+      root /etc/caddy/app/www
+    }
+  }
+}
